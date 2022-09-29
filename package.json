@@ -1,0 +1,32 @@
+{
+  "name": "CreditSystemsBack",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "currency-formatter": "^1.5.9",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "fcm-notification": "^2.0.0",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "json-gate": "^0.8.23",
+    "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.34",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.3",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.6.3",
+    "path": "^0.12.7",
+    "pg": "^8.7.1",
+    "pg-format": "^1.0.4",
+    "qrcode": "^1.4.4",
+    "qs": "^6.10.3",
+    "request-promise": "^4.2.6",
+    "swagger-ui-express": "^4.3.0"
+  }
+}
