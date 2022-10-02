@@ -9,9 +9,7 @@ module.exports = class GetAddEdit {
 
   async get() {
     let data = await new DataBase(this.DB_Table_Name).DB_query(
-      "SELECT * FROM " +
-        this.DB_Table_Name +
-        " WHERE id = $1 AND archived = false",
+      "SELECT * FROM " + this.DB_Table_Name + " WHERE id = $1",
       [this.id]
     );
     return {
@@ -40,6 +38,15 @@ module.exports = class GetAddEdit {
     return await this.edit({
       id: data.id,
       archived: true,
+      status: 4,
+    });
+  }
+
+  async restore(data) {
+    return await this.edit({
+      id: data.id,
+      archived: false,
+      status: 1,
     });
   }
 };

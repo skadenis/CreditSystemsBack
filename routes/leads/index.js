@@ -10,6 +10,11 @@ router.get("/", Policy(), async function (req, res, next) {
   res.json(data).status(data.status);
 });
 
+router.get("/deleted", Policy(), async function (req, res, next) {
+  let data = await new leadsController().get_deleted();
+  res.json(data).status(data.status);
+});
+
 router.post("/filtered", Policy(), async function (req, res, next) {
   console.log(req.body);
   let data = await new leadsController().get_filtered(req.body);
@@ -33,6 +38,11 @@ router.put("/edit", Policy(), async function (req, res, next) {
 
 router.put("/delete", Policy(), async function (req, res, next) {
   await new leadsController().delete(req.body);
+  res.json({ status: 200 }).status(200);
+});
+
+router.put("/restore", Policy(), async function (req, res, next) {
+  await new leadsController().restore(req.body);
   res.json({ status: 200 }).status(200);
 });
 

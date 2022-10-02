@@ -19,6 +19,10 @@ module.exports = class leads {
     return await new GAED(DB_Table_Name, this.lead_id).get();
   }
 
+  async get_deleted() {
+    return await new DataBase(DB_Table_Name).DB_query("SELECT * FROM leads");
+  }
+
   async get_filtered(data) {
     return await new DataBase(DB_Table_Name).DB_query(
       "SELECT * FROM leads WHERE archived = false AND credit_target = $1 AND desired_amount BETWEEN $2 AND $3 AND term BETWEEN $4 AND $5",
@@ -42,5 +46,9 @@ module.exports = class leads {
 
   async delete(data) {
     return await new GAED(DB_Table_Name, this.lead_id).delete(data);
+  }
+
+  async restore(data) {
+    return await new GAED(DB_Table_Name, this.lead_id).restore(data);
   }
 };
