@@ -35,11 +35,17 @@ module.exports = class GetAddEdit {
   }
 
   async delete(data) {
-    return await this.edit({
-      id: data.id,
-      archived: true,
-      status: 4,
-    });
+    if (data.status) {
+      return await this.edit({
+        id: data.id,
+        archived: true,
+        status: 4,
+      });
+    } else
+      return await this.edit({
+        id: data.id,
+        archived: true,
+      });
   }
 
   async restore(data) {
